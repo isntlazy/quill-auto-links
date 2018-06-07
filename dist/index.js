@@ -14,7 +14,8 @@ var DEFAULT_OPTIONS = {
 };
 
 var REGEXP_GLOBAL = /https?:\/\/[^\s]+/g;
-var REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(https?:\/\/[^\s]+)/;
+// var REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(https?:\/\/[^\s]+)/;
+var REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(#\d[^\s\D]+)/;
 
 var sliceFromLastWhitespace = function sliceFromLastWhitespace(str) {
   var whitespaceI = str.lastIndexOf(' ');
@@ -38,7 +39,6 @@ function registerTypeListener(quill) {
 }
 
 function registerPasteListener(quill) {
-  console.log('testFork2');
   quill.clipboard.addMatcher(Node.TEXT_NODE, function (node, delta) {
     if (typeof node.data !== 'string') {
       return;
