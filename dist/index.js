@@ -13,8 +13,7 @@ var DEFAULT_OPTIONS = {
   type: true
 };
 
-var REGEXP_GLOBAL = /https?:\/\/[^\s]+/g;
-// var REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(https?:\/\/[^\s]+)/;
+var REGEXP_GLOBAL = /#\d[^\s\D]+/g;
 var REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(#\d[^\s\D]+)/;
 
 var sliceFromLastWhitespace = function sliceFromLastWhitespace(str) {

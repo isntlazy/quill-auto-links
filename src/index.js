@@ -3,8 +3,8 @@ const DEFAULT_OPTIONS = {
   type: true,
 };
 
-const REGEXP_GLOBAL = /https?:\/\/[^\s]+/g;
-const REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(https?:\/\/[^\s]+)/;
+const REGEXP_GLOBAL = /#\d[^\s\D]+/g;
+const REGEXP_WITH_PRECEDING_WS = /(?:\s|^)(#\d[^\s\D]+)/;
 
 const sliceFromLastWhitespace = (str) => {
   const whitespaceI = str.lastIndexOf(' ');
@@ -31,7 +31,6 @@ function registerTypeListener(quill) {
 }
 
 function registerPasteListener(quill) {
-  console.log('testFork')
   quill.clipboard.addMatcher(Node.TEXT_NODE, (node, delta) => {
     if (typeof node.data !== 'string') {
       return;
