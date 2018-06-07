@@ -31,6 +31,7 @@ function registerTypeListener(quill) {
 }
 
 function registerPasteListener(quill) {
+  console.log('testFork')
   quill.clipboard.addMatcher(Node.TEXT_NODE, (node, delta) => {
     if (typeof node.data !== 'string') {
       return;
